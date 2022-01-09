@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <h1><p id="demo"></p></h1>
+
+    <script>
+        var student = {
+            name : "venky",
+            age : 20,
+            studies : "computer Technology"
+        };
+        document.getElementById('demo').innerHTML = student.name + " of the age "+ student.age + " studies " + student.studies;
+
+        var student2 = new Object();
+        student2.name = "karthi";
+        student2.age = 24;
+        document.getElementById('demo').innerHTML = student2.name + " of the age "+ student2.age;
+
+       
+
+    </script>
+</body>
+</html>
