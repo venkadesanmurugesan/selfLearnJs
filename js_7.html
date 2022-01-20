@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        function my_fun(val){
+            document.getElementById('demo').innerHTML = val*val;
+        }
+        my_fun(5);
+    </script>
+
+    <script>
+        var my_function = new Function("a" , "b" ,"return a+b");
+        var x = my_function(2,4);
+        document.getElementById('demo').innerHTML = "The sum is " + x;
+    </script>
+
+    <script>
+        function product(a,b){
+            return a*b;
+        }
+        let y = product(2,5)*5;
+        document.getElementById('demo').innerHTML = y;
+    </script>
+
+    <script>
+        var body = "return Math.PI * rad * rad";
+        var circle = new Function("rad" , body);
+        alert(circle(6));
+    </script>
+    <script>
+        const myFunc = (a,b,c) => {return a*b*c;}
+        let product2 = myFunc(2,3,4);
+        document.getElementById('demo').innerHTML = product2;
+    </script>
+    <script>
+        function* generateFunc(){
+            yield 1;
+            yield 2;
+            return 3;
+        }
+        let generator = generateFunc();
+        let one = generator.next();
+        let two = generator.next();
+        let three = generator.next();
+        alert(JSON.stringify(one));
+        alert(JSON.stringify(two));
+        alert(JSON.stringify(three));
+
+        var x1=4;
+        var x2=5;
+        var z1=9;
+        console.log(eval("x1+z1"));
+        console.log(eval(x2));
+
+    </script>
+</body>
+</html>

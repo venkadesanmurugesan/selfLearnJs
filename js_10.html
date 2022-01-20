@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async / Await</title>
+</head>
+<body>
+   <script>
+        let result = (score) => {
+        return new Promise(function(res,rej){
+            console.log("Calculating results...");
+            if(score>=50)
+                res("Congratulations! you have passed");
+            else
+                rej("You have failed");
+        })
+    }
+    let grade = (res) => {
+        return new Promise(function(res,rej){
+            console.log("Calculating Grades...");
+            res("Your grade is A. " + res);
+        })
+    }
+    // result(50).then(res=>{
+    //     console.log("Results received");
+    //     return grade(res)
+    // }).then(finalGrade => {
+    //     console.log(finalGrade);
+    // }).catch(err => {
+    //     console.log(err);
+    // })
+
+    async function calcResult(){
+        try{
+            const res = await result(40);
+        console.log("Results received");
+        const finalGrade = await grade(res);
+        console.log(finalGrade);
+        }catch(err){
+            console.error(err);
+        }
+    }
+    calcResult();
+   </script>
+
+<!-- this keyword -->
+   <script>
+       var details = {
+           name: "venky Tutorial",
+           video: ["JS","this","keyword"],
+           info(){
+               this.video.forEach(function(tag){
+                   console.log(this.name,tag);
+               },this)
+               console.log(`Hi, this is ${this.name}.`);
+           }
+       }
+       details.info();
+   </script>
+</body>
+</html>
